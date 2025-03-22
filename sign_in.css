@@ -1,0 +1,80 @@
+/* Center the form in a professional box */
+body {
+  background: linear-gradient(135deg, #057dcd, #1e3d58);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* Form Container */
+.form-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 350px;
+}
+
+/* Form Title */
+.form-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e3d58;
+  margin-bottom: 1rem;
+}
+
+/* Input Fields */
+.input-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.input-container input:focus {
+  border-color: #057dcd;
+  outline: none;
+}
+
+/* Submit Button */
+.submit {
+  width: 100%;
+  padding: 12px;
+  background: #057dcd;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit:hover {
+  background: #043f7d;
+  transform: scale(1.05);
+}
+
+/* Signup Link */
+.signup-link {
+  margin-top: 15px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.signup-link a {
+  color: #057dcd;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}

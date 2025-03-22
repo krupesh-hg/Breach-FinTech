@@ -1,0 +1,27 @@
+<form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" id="complianceFile" accept="application/pdf">
+    <button type="button" onclick="uploadAndCompare()">Upload & Compare</button>
+</form>
+
+<pre id="comparisonResult"></pre>
+
+<script>
+async function uploadAndCompare() {
+    const fileInput = document.getElementById("complianceFile");
+    if (!fileInput.files.length) {
+        alert("Please upload a file first.");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    const response = await fetch("/upload", {
+        method: "POST",
+        body: formData
+    });
+
+    const result = await response.json();
+    document.getElementById("comparisonResult").innerText = JSON.stringify(result, null, 2);
+}
+</script>

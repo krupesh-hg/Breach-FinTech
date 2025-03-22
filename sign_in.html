@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="sign_in.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <form class="form" onsubmit="return loginUser(event)">
+            <p class="form-title">Sign in to your account</p>
+            <div class="input-container">
+                <input type="email" id="email" placeholder="Enter email" required>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+            <p id="error-msg" style="color: red; text-align: center;"></p>
+            <button type="submit" class="submit">Sign In</button>
+            <p class="signup-link">
+                No account? <a href="signup.html">Sign up</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        function loginUser(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let storedUser = JSON.parse(localStorage.getItem("user"));
+
+            if (storedUser && storedUser.email === email && storedUser.password === password) {
+                localStorage.setItem("loggedIn", "true");
+                window.location.href = "index.html"; // Redirect to dashboard
+            } else {
+                document.getElementById("error-msg").innerText = "Invalid Email or Password!";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Audit PDF</title>
+    <link rel="stylesheet" href="add.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Audit PDF</h1>
+        <input type="file" id="pdfUpload" accept="application/pdf">
+        <div class="button-container">
+            <button onclick="uploadPDF()">Upload</button>
+            <button onclick="viewPDF()">Preview</button>
+        </div>
+        <div id="pdfViewer"></div>
+    </div>
+
+    <script>
+        function uploadPDF() {
+            const file = document.getElementById('pdfUpload').files[0];
+            if (file && file.type === "application/pdf") {
+                alert("PDF uploaded successfully!");
+            } else {
+                alert("Please upload a valid PDF file.");
+            }
+        }
+
+        function viewPDF() {
+            const file = document.getElementById('pdfUpload').files[0];
+            if (file && file.type === "application/pdf") {
+                const fileURL = URL.createObjectURL(file);
+                document.getElementById('pdfViewer').innerHTML = `<iframe src="${fileURL}" width="100%" height="400px"></iframe>`;
+            } else {
+                alert("Please upload a valid PDF file.");
+            }
+        }
+    </script>
+</body>
+</html>

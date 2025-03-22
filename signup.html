@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <form class="form" onsubmit="return saveUser(event)">
+            <p class="form-title">Create an account</p>
+            <div class="input-container">
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="input-container">
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="submit">Sign Up</button>
+            <p class="login-link">
+                Already have an account? <a href="sign_in.html">Login</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        function saveUser(event) {
+            event.preventDefault(); // Prevent page refresh
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let userData = { name, email, password };
+            localStorage.setItem("user", JSON.stringify(userData)); // Store user data
+
+            alert("Account created successfully! Redirecting to login...");
+            window.location.href = "sign_in.html"; // Redirect to login page
+        }
+    </script>
+
+</body>
+</html>
